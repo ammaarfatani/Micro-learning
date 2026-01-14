@@ -33,7 +33,6 @@ const Login = () => {
           Login to continue your learning journey
         </p>
 
-        {/* Email */}
         <div className="flex items-center gap-3 border border-gray-200 rounded-lg px-4 py-3 mb-4 focus-within:border-[#2563EB]">
           <FaEnvelope className="text-gray-400" />
           <input
@@ -43,7 +42,6 @@ const Login = () => {
           />
         </div>
 
-        {/* Password */}
         <div className="flex items-center gap-3 border border-gray-200 rounded-lg px-4 py-3 mb-6 focus-within:border-[#2563EB]">
           <FaLock className="text-gray-400" />
           <input
@@ -54,25 +52,22 @@ const Login = () => {
           />
         </div>
 
-        {/* Login Button */}
         <button
           onClick={handleLogin}
-          className="w-full bg-[#2563EB] text-white py-3 rounded-lg font-medium hover:bg-blue-700 transition"
+          className="w-full bg-[#2563EB] text-white py-3 rounded-lg font-medium hover:bg-blue-700 transition cursor-pointer"
         >
           Login
         </button>
 
-        {/* Divider */}
         <div className="flex items-center gap-3 my-5">
           <div className="flex-1 h-px bg-gray-200" />
           <span className="text-xs text-gray-400">OR</span>
           <div className="flex-1 h-px bg-gray-200" />
         </div>
 
-        {/* Google */}
         <button
           onClick={handleGoogleLogin}
-          className="w-full flex items-center justify-center gap-3 border border-gray-200 py-3 rounded-lg hover:bg-gray-50 transition"
+          className="w-full flex items-center justify-center gap-3 border border-gray-200 py-3 rounded-lg hover:bg-gray-50 transition cursor-pointer"
         >
           <FaGoogle className="text-red-500" />
           Continue with Google
@@ -80,7 +75,7 @@ const Login = () => {
 
         <p className="text-sm text-center mt-6 text-gray-500">
           Don’t have an account?{" "}
-          <a href="/signup" className="text-[#2563EB] font-medium">
+          <a href="/signup" className="text-[#2563EB] font-medium cursor-pointer">
             Sign up
           </a>
         </p>

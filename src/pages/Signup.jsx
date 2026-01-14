@@ -33,7 +33,6 @@ const Signup = () => {
           Start your 21-day learning journey
         </p>
 
-        {/* Email */}
         <div className="flex items-center gap-3 border border-gray-200 rounded-lg px-4 py-3 mb-4 focus-within:border-[#2563EB]">
           <FaEnvelope className="text-gray-400" />
           <input
@@ -43,7 +42,6 @@ const Signup = () => {
           />
         </div>
 
-        {/* Password */}
         <div className="flex items-center gap-3 border border-gray-200 rounded-lg px-4 py-3 mb-6 focus-within:border-[#2563EB]">
           <FaLock className="text-gray-400" />
           <input
@@ -54,25 +52,22 @@ const Signup = () => {
           />
         </div>
 
-        {/* Signup */}
         <button
           onClick={handleSignup}
-          className="w-full bg-[#2563EB] text-white py-3 rounded-lg font-medium hover:bg-blue-700 transition"
+          className="w-full bg-[#2563EB] text-white py-3 rounded-lg font-medium hover:bg-blue-700 transition cursor-pointer"
         >
           Create Account
         </button>
 
-        {/* Divider */}
         <div className="flex items-center gap-3 my-5">
           <div className="flex-1 h-px bg-gray-200" />
           <span className="text-xs text-gray-400">OR</span>
           <div className="flex-1 h-px bg-gray-200" />
         </div>
 
-        {/* Google */}
         <button
           onClick={handleGoogleSignup}
-          className="w-full flex items-center justify-center gap-3 border border-gray-200 py-3 rounded-lg hover:bg-gray-50 transition"
+          className="w-full flex items-center justify-center gap-3 border border-gray-200 py-3 rounded-lg hover:bg-gray-50 transition cursor-pointer"
         >
           <FaGoogle className="text-red-500" />
           Sign up with Google
@@ -80,7 +75,7 @@ const Signup = () => {
 
         <p className="text-sm text-center mt-6 text-gray-500">
           Already have an account?{" "}
-          <a href="/login" className="text-[#2563EB] font-medium">
+          <a href="/" className="text-[#2563EB] font-medium cursor-pointer">
             Login
           </a>
         </p>

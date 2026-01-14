@@ -26,18 +26,15 @@ const Quiz = ({ day }) => {
 
   const dayNumber = Number(day.replace("day", ""));
 
-  // 🔹 Fetch quiz + progress
   useEffect(() => {
     if (!user) return;
 
     const fetchData = async () => {
-      // Quiz
       const quizSnap = await getDoc(doc(db, "quizzes", day));
       if (quizSnap.exists()) {
         setQuiz(quizSnap.data());
       }
 
-      // Progress
       const progressSnap = await getDoc(doc(db, "progress", user.uid));
       if (progressSnap.exists()) {
         const progress = progressSnap.data();
@@ -52,7 +49,6 @@ const Quiz = ({ day }) => {
     fetchData();
   }, [day, user, dayNumber]);
 
-  // 🔥 Submit handler
   const handleSubmit = async () => {
     if (!quiz || !user || alreadyCompleted) return;
 
@@ -84,7 +80,6 @@ const Quiz = ({ day }) => {
     return <p className="mt-6 text-gray-500">Loading quiz...</p>;
   }
 
-  // 🛑 ALREADY COMPLETED UI
   if (alreadyCompleted) {
     return (
       <div className="mt-8 bg-green-50 border border-green-300 p-6 rounded-xl">
@@ -97,7 +92,7 @@ const Quiz = ({ day }) => {
 
         <button
           onClick={() => navigate("/dashboard")}
-          className="mt-4 bg-[#2563EB] text-white px-6 py-2 rounded-lg"
+          className="mt-4 bg-[#2563EB] text-white px-6 py-2 rounded-lg cursor-pointer"
         >
           Go to Dashboard →
         </button>
@@ -146,7 +141,7 @@ const Quiz = ({ day }) => {
         <button
           disabled={!selected}
           onClick={handleSubmit}
-          className="mt-6 bg-[#2563EB] text-white px-6 py-2 rounded-lg disabled:opacity-50"
+          className="mt-6 bg-[#2563EB] text-white px-6 py-2 rounded-lg disabled:opacity-50 cursor-pointer"
         >
           Submit Quiz
         </button>
@@ -159,7 +154,7 @@ const Quiz = ({ day }) => {
               </p>
               <button
                 onClick={() => navigate("/dashboard")}
-                className="mt-4 bg-[#2563EB] text-white px-6 py-2 rounded-lg"
+                className="mt-4 bg-[#2563EB] text-white px-6 py-2 rounded-lg cursor-pointer"
               >
                 Go to Dashboard →
               </button>
@@ -174,7 +169,7 @@ const Quiz = ({ day }) => {
                   setSubmitted(false);
                   setSelected("");
                 }}
-                className="mt-4 bg-[#1E293B] text-white px-4 py-2 rounded-lg"
+                className="mt-4 bg-[#1E293B] text-white px-4 py-2 rounded-lg cursor-pointer"
               >
                 Retry Quiz
               </button>

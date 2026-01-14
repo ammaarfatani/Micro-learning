@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { doc, getDoc } from "firebase/firestore";
 import { db } from "../firebase";
 import { FiPlay, FiTrendingUp, FiCheckCircle } from "react-icons/fi";
+import Header from "../components/Header";
 
 const Dashboard = () => {
   const { user } = useAuth();
@@ -34,10 +35,11 @@ const Dashboard = () => {
   const todayLesson = `day${progress.lastUnlockedDay}`;
 
   return (
+    <>
+    <Header />
     <div className="min-h-screen bg-[#F8FAFC] px-6 py-10">
       <div className="max-w-6xl mx-auto">
 
-        {/* Header */}
         <div className="mb-10">
           <h1 className="text-3xl font-semibold text-[#1E293B] font-poppins">
             Welcome back 👋
@@ -47,10 +49,8 @@ const Dashboard = () => {
           </p>
         </div>
 
-        {/* Main Cards */}
         <div className="grid lg:grid-cols-2 gap-8">
 
-          {/* Today Lesson Card */}
           <div className="bg-white rounded-2xl p-7 shadow-sm border border-gray-100">
             <span className="inline-block text-sm font-medium text-[#2563EB] bg-blue-50 px-3 py-1 rounded-full">
               Today’s Lesson
@@ -67,14 +67,13 @@ const Dashboard = () => {
 
             <button
               onClick={() => navigate(`/lesson/${todayLesson}`)}
-              className="mt-6 inline-flex items-center gap-2 bg-[#2563EB] text-white px-6 py-3 rounded-xl hover:bg-blue-700 transition font-medium"
+              className="mt-6 inline-flex items-center gap-2 bg-[#2563EB] text-white px-6 py-3 rounded-xl hover:bg-blue-700 transition font-medium cursor-pointer"
             >
               <FiPlay className="text-lg" />
               Start Lesson
             </button>
           </div>
 
-          {/* Progress Card */}
           <div className="bg-white rounded-2xl p-7 shadow-sm border border-gray-100">
             <div className="flex items-center gap-3 mb-6">
               <div className="w-10 h-10 flex items-center justify-center rounded-full bg-blue-50">
@@ -107,7 +106,6 @@ const Dashboard = () => {
           </div>
         </div>
 
-        {/* Certificate Section */}
         {completed === totalLessons && (
           <div className="mt-12 bg-green-50 border border-green-200 rounded-2xl p-8 text-center">
             <FiCheckCircle className="text-green-600 text-4xl mx-auto mb-3" />
@@ -120,7 +118,7 @@ const Dashboard = () => {
 
             <button
               onClick={() => navigate("/certificate")}
-              className="mt-6 bg-green-600 text-white px-8 py-3 rounded-xl text-lg font-medium hover:bg-green-700 transition"
+              className="mt-6 bg-green-600 text-white px-8 py-3 rounded-xl text-lg font-medium hover:bg-green-700 transition cursor-pointer"
             >
               🎓 Download Certificate
             </button>
@@ -129,6 +127,7 @@ const Dashboard = () => {
 
       </div>
     </div>
+    </>
   );
 };
 

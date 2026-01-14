@@ -4,6 +4,7 @@ import { db } from "../firebase";
 import { useParams } from "react-router-dom";
 import Quiz from "../components/Quiz";
 import { useAuth } from "../context/AuthContext";
+import Header from "../components/Header";
 
 const Lesson = () => {
   const { day } = useParams();
@@ -56,6 +57,8 @@ const Lesson = () => {
   }
 
   return (
+    <>
+    <Header />
     <div className="min-h-screen bg-slate-50 px-6 py-10">
       <div className="max-w-3xl mx-auto bg-white p-8 rounded-2xl shadow-sm border">
 
@@ -74,7 +77,7 @@ const Lesson = () => {
         {!showQuiz && (
           <button
             onClick={() => setShowQuiz(true)}
-            className="mt-6 bg-blue-600 text-white px-6 py-2.5 rounded-lg hover:bg-blue-700 transition"
+            className="mt-6 bg-blue-600 text-white px-6 py-2.5 rounded-lg hover:bg-blue-700 transition cursor-pointer"
           >
             Start Quiz →
           </button>
@@ -83,6 +86,7 @@ const Lesson = () => {
         {showQuiz && <Quiz day={day} />}
       </div>
     </div>
+    </>
   );
 };
 

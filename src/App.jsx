@@ -10,7 +10,7 @@ import Certificate from "./pages/Certificate";
 function App() {
   return (
     <BrowserRouter>
-      <Header />
+      
       <Routes>
         <Route path="/" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
